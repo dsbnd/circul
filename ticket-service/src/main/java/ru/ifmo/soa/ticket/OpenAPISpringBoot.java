@@ -15,10 +15,12 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 import org.springframework.context.annotation.Bean;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import com.fasterxml.jackson.databind.Module;
 
 
 @SpringBootApplication
+@EnableDiscoveryClient
 @ComponentScan(basePackages = {"ru.ifmo.soa.ticket", "ru.ifmo.soa.ticket.api", "io.swagger.configuration"})
 public class OpenAPISpringBoot extends SpringBootServletInitializer implements CommandLineRunner {
 
