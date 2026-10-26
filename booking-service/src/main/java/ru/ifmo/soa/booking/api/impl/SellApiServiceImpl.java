@@ -1,6 +1,5 @@
 package ru.ifmo.soa.booking.api.impl;
 
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -10,8 +9,9 @@ import ru.ifmo.soa.booking.api.SellApiService;
 import ru.ifmo.soa.booking.service.BookingStore;
 import ru.ifmo.soa.booking.service.ErrorResponses;
 import ru.ifmo.soa.booking.service.TicketServiceClient;
+import org.springframework.stereotype.Service;
 
-@RequestScoped
+@Service
 public class SellApiServiceImpl implements SellApiService {
 
     @Inject

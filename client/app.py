@@ -10,12 +10,12 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 TICKET_SERVICE_URL = os.getenv(
     "TICKET_SERVICE_URL",
-    "https://localhost:8543/api/v1",
+    "http://localhost:8080/api/v1",
 ).rstrip("/")
 
 BOOKING_SERVICE_URL = os.getenv(
     "BOOKING_SERVICE_URL",
-    "https://localhost:8643/booking",
+    "http://localhost:8080/booking",
 ).rstrip("/")
 
 CLIENT_CERT_FILE = os.getenv("CLIENT_CERT_FILE") or os.getenv("CLIENT_TLS_CERT")

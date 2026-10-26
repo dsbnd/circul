@@ -20,4 +20,9 @@ build eureka-server
 build ticket-service
 build api-gateway
 
-echo "Spring Cloud-компоненты собраны."
+echo "Сборка booking-service..."
+"$PROJECT_DIR/booking-service/gradlew" \
+    -p "$PROJECT_DIR/booking-service" \
+    clean test bootJar
+
+echo "Компоненты лабораторной №3 собраны."

@@ -1,35 +1,28 @@
 package ru.ifmo.soa.booking.service;
 
 import jakarta.annotation.PreDestroy;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Response;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
-@ApplicationScoped
+@Component
 public class TicketServiceClient {
-
-    private static final String DEFAULT_URL =
-            "https://localhost:8443/api/v1";
 
     private final Client client;
     private final String baseUrl;
 
-    public TicketServiceClient() {
+    public TicketServiceClient(
+            @Value("${ticket.service.url:http://localhost:8080/api/v1}")
+            String configuredUrl
+    ) {
         client = ClientBuilder.newBuilder()
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .readTimeout(5, TimeUnit.SECONDS)
                 .build();
-
-        String configuredUrl = System.getProperty("ticket.service.url");
-        if (configuredUrl == null || configuredUrl.isBlank()) {
-            configuredUrl = System.getenv("TICKET_SERVICE_URL");
-        }
-        if (configuredUrl == null || configuredUrl.isBlank()) {
-            configuredUrl = DEFAULT_URL;
-        }
 
         baseUrl = removeTrailingSlash(configuredUrl);
     }

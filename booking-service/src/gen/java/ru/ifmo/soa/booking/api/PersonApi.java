@@ -27,6 +27,9 @@ import jakarta.ws.rs.*;
 import jakarta.inject.Inject;
 
 import jakarta.validation.constraints.*;
+import org.springframework.stereotype.Component;
+
+@Component
 @Path("/person")
 
 

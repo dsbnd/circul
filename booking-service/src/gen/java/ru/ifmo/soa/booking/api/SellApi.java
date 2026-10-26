@@ -27,6 +27,9 @@ import jakarta.ws.rs.*;
 import jakarta.inject.Inject;
 
 import jakarta.validation.constraints.*;
+import org.springframework.stereotype.Component;
+
+@Component
 @Path("/sell")
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2026-09-29T15:09:58.593749+03:00[Europe/Moscow]")
 public class SellApi  {

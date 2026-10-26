@@ -28,9 +28,13 @@ stop_service() {
 }
 
 # Stop entry points before their dependencies.
+stop_service client
 stop_service gateway
+stop_service haproxy
+stop_service booking-2
+stop_service booking-1
 stop_service ticket
 stop_service eureka
 stop_service config
 
-echo "Spring Cloud-компоненты остановлены."
+echo "Компоненты лабораторной №3 остановлены."
